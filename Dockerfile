@@ -8,13 +8,13 @@ RUN apt-get update && \
     apt-get install -y nodejs
 
 # Set the working directory
-WORKDIR /app
+#WORKDIR /app
 
 # Clone the remote Git repository
-RUN git clone <repository-url>
+#RUN git clone <repository-url>
 
 # Install the project dependencies
-RUN cd <project-directory> && npm install
+#RUN cd <project-directory> && npm install
 
 # Set the command to run when the container starts
-CMD ["node", "<project-directory>/index.js"]
+#CMD ["node", "<project-directory>/index.js"]
