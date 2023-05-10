@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt install tzdata -yq
 RUN ln -fs /usr/share/zoneinfo/Asia/Kolkata /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata
-RUN cd /sourcecode/dashboard-automation/
+WORKDIR /sourcecode/dashboard-automation/
 RUN npm install -D @playwright/test
 RUN npx playwright install
 RUN npx playwright install-deps 
