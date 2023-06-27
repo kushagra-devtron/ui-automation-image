@@ -9,6 +9,18 @@ RUN apt update && \
     ln -fs /usr/share/zoneinfo/Asia/Kolkata /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata
 
+RUN apt update && \
+    apt install -yq \
+    fonts-noto \
+    libx264-160 \
+    libenchant-2-2 \
+    libicu67 \
+    libjpeg-turbo8 \
+    libvpx7 \
+    libwebp6 && \
+    rm -rf /var/lib/apt/lists/*
+
+
 WORKDIR /sourcecode/dashboard-automation/
 
 COPY . .
