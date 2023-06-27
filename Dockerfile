@@ -5,7 +5,7 @@ ENV TZ="Asia/Kolkata"
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && \
-    apt install -yq tzdata && \
+    apt install -yq tzdata fonts-noto && \
     ln -fs /usr/share/zoneinfo/Asia/Kolkata /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata
 
