@@ -1,20 +1,11 @@
-# Use the official Ubuntu 20.04 LTS image as the base image
-FROM ubuntu:20.04
+# Specify a base image
+FROM node:alpine
 
-# Install the latest version of Node.js and npm
-RUN apt-get update && \
-    apt-get install -y curl && \
-    curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -y nodejs
+#Install some dependencies
 
-# Set the working directory
-#WORKDIR /app
+WORKDIR /usr/app
+COPY ./ /usr/app
+RUN npm install
 
-# Clone the remote Git repository
-#RUN git clone <repository-url>
-
-# Install the project dependencies
-#RUN cd <project-directory> && npm install
-
-# Set the command to run when the container starts
-#CMD ["node", "<project-directory>/index.js"]
+# Set up a default command
+CMD [ "npm","start" ]
